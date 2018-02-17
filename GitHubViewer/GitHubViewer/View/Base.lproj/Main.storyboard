@@ -71,10 +71,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pet-ZO-yuA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="232" width="375" height="435"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="B9Y-C1-1cn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RepositoryCell" rowHeight="60" id="B9Y-C1-1cn" customClass="RepositoryTableViewCell" customModule="GitHubViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B9Y-C1-1cn" id="QuS-ut-0LN">
@@ -82,7 +82,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zfV-1H-WSC">
-                                                    <rect key="frame" x="12" y="2" width="188" height="55.5"/>
+                                                    <rect key="frame" x="12" y="2" width="188" height="56"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G8-0r-IKp">
                                                             <rect key="frame" x="0.0" y="0.0" width="188" height="25.5"/>
@@ -91,7 +91,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Programming Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoZ-bj-awR">
-                                                            <rect key="frame" x="0.0" y="30.5" width="188" height="25"/>
+                                                            <rect key="frame" x="0.0" y="30.5" width="188" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -106,26 +106,59 @@
                                                 <constraint firstItem="zfV-1H-WSC" firstAttribute="centerY" secondItem="QuS-ut-0LN" secondAttribute="centerY" id="zPt-3F-yD0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="repositoryLanguage" destination="DoZ-bj-awR" id="3z0-t7-upI"/>
+                                            <outlet property="repositoryName" destination="0G8-0r-IKp" id="2TT-Je-xkP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1KQ-Ca-y5N">
+                                <rect key="frame" x="127.5" y="64" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Kby-LC-1QM"/>
+                                    <constraint firstAttribute="height" constant="120" id="oMi-sU-lbu"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26k-2s-IlE">
+                                <rect key="frame" x="147.5" y="196" width="80" height="24"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97646147009999995" green="0.97646445039999996" blue="0.97647100689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Hca-7O-OSJ" firstAttribute="bottom" secondItem="pet-ZO-yuA" secondAttribute="bottom" id="Bey-4w-taT"/>
-                            <constraint firstItem="pet-ZO-yuA" firstAttribute="leading" secondItem="Hca-7O-OSJ" secondAttribute="leading" id="Ipf-Bi-Ebh"/>
-                            <constraint firstItem="pet-ZO-yuA" firstAttribute="top" secondItem="Hca-7O-OSJ" secondAttribute="top" id="YUH-GD-vwZ"/>
-                            <constraint firstItem="Hca-7O-OSJ" firstAttribute="trailing" secondItem="pet-ZO-yuA" secondAttribute="trailing" id="v3c-ns-1Qt"/>
+                            <constraint firstItem="26k-2s-IlE" firstAttribute="top" secondItem="1KQ-Ca-y5N" secondAttribute="bottom" constant="12" id="37f-8w-LGk"/>
+                            <constraint firstItem="pet-ZO-yuA" firstAttribute="leading" secondItem="Hca-7O-OSJ" secondAttribute="leading" id="99N-Wj-ZbV"/>
+                            <constraint firstItem="1KQ-Ca-y5N" firstAttribute="centerX" secondItem="Hca-7O-OSJ" secondAttribute="centerX" id="CtA-8y-ekA"/>
+                            <constraint firstItem="1KQ-Ca-y5N" firstAttribute="top" secondItem="Hca-7O-OSJ" secondAttribute="top" id="EWN-dN-wws"/>
+                            <constraint firstItem="26k-2s-IlE" firstAttribute="centerX" secondItem="1KQ-Ca-y5N" secondAttribute="centerX" id="Qvn-vL-vxP"/>
+                            <constraint firstItem="pet-ZO-yuA" firstAttribute="trailing" secondItem="Hca-7O-OSJ" secondAttribute="trailing" id="RQM-gy-yXB"/>
+                            <constraint firstItem="pet-ZO-yuA" firstAttribute="bottom" secondItem="Hca-7O-OSJ" secondAttribute="bottom" id="aJQ-zP-J8o"/>
+                            <constraint firstItem="pet-ZO-yuA" firstAttribute="top" secondItem="26k-2s-IlE" secondAttribute="bottom" constant="12" id="dSQ-Y9-VhP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hca-7O-OSJ"/>
                     </view>
                     <connections>
                         <outlet property="reposTableView" destination="pet-ZO-yuA" id="yWV-US-0ij"/>
+                        <outlet property="userImageView" destination="1KQ-Ca-y5N" id="cGg-EJ-SyB"/>
+                        <outlet property="usernameLabel" destination="26k-2s-IlE" id="hIm-eD-QkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8mz-ik-al1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="3HD-8q-jXX" customClass="Rounder" customModule="GitHubViewer" customModuleProvider="target">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="60"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="targets" destination="1KQ-Ca-y5N" collectionClass="NSMutableArray" id="Dd1-5E-DkK"/>
+                    </connections>
+                </customObject>
             </objects>
-            <point key="canvasLocation" x="1244" y="134"/>
+            <point key="canvasLocation" x="1244" y="133.5832083958021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ksl-00-b55">
