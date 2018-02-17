@@ -35,7 +35,7 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Search"/>
                                 <connections>
-                                    <segue destination="adK-tF-Cby" kind="show" id="fNy-EH-6pW"/>
+                                    <action selector="search" destination="BYZ-38-t0r" eventType="touchUpInside" id="nP6-Tr-hY9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,6 +53,10 @@
                     <navigationItem key="navigationItem" title="GitHub Viewer" id="bWl-Rh-SSK">
                         <barButtonItem key="backBarButtonItem" title="Back" id="ol3-E2-TDe"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="usernameTextField" destination="saK-iX-f17" id="JLS-N1-rMT"/>
+                        <segue destination="adK-tF-Cby" kind="show" identifier="showReposListSegue" id="FXZ-HH-1qs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

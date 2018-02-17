@@ -14,11 +14,12 @@ class ReposListViewController: UIViewController {
     @IBOutlet weak var reposTableView: UITableView!
     
     // MARK: - Properties
+    var reposList : [GitHubRepository] = []
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(reposList)
     }
     
     // MARK: - General Methods
