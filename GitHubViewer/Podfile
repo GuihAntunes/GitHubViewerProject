@@ -5,6 +5,4 @@ target 'GitHubViewer' do
 pod 'Freddy'
 pod 'Alamofire'
 pod 'AlamofireImage'
-pod 'RxSwift'
-pod 'RxCocoa'
 end
