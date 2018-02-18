@@ -1,0 +1,9 @@
+"api.error.title" = "A network error has occured";
+"api.error.message" = "Check your Internet connection and try again later";
+"url.error.title" = "Error";
+"url.error.message" = "Failed to get URL! Try again later or contact us for support!";
+"user.not.found.error.title" = "User not found";
+"user.not.found.error.message" = "Please enter another name";
+"empty.textfield.title" = "No username entered";
+"empty.textfield.message" = "Insert a username to proceed!";
+"ok.action.button.title" = "Ok";

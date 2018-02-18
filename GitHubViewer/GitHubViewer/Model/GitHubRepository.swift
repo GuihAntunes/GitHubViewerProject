@@ -9,6 +9,9 @@
 import Foundation
 import Freddy
 
+// Constants
+let EmptyLanguageReturnedDefaultText = "Not Specified"
+
 internal struct GitHubRepository {
     
     fileprivate var repoName : String
@@ -27,6 +30,6 @@ internal struct GitHubRepository {
 extension GitHubRepository : JSONDecodable {
     public init(json: JSON) throws {
         self.repoName = try json.getString(at: "name")
-        self.language = try json.getString(at: "language", alongPath: .nullBecomesNil) ?? "Not Specified"
+        self.language = try json.getString(at: "language", alongPath: .nullBecomesNil) ?? EmptyLanguageReturnedDefaultText
     }
 }

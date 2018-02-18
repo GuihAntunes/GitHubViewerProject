@@ -11,6 +11,11 @@ import Alamofire
 import AlamofireImage
 import Freddy
 
+// Constants
+let reposListSegueIdentifier = "showReposListSegue"
+let userFoundString = "User found"
+let failedUrlImageString = "Failed to get image url string!"
+
 class HomeScreenViewController: UIViewController {
 
     // MARK: - Outlets
@@ -42,7 +47,7 @@ class HomeScreenViewController: UIViewController {
     
     func fetchReposListForUsername(_ username : String, completion : @escaping (() -> Void)) {
         guard let url = URL(string: prefixBaseUrlString + username + suffixBaseUrlString) else {
-            let alert = getAlertViewControllerWith(title: "Error", message: "Failed to get URL! Try again later or contact us for support!")
+            let alert = getAlertViewControllerWith(title: NSLocalizedString(URLErrorTitle, comment: ""), message: NSLocalizedString(URLErrorMessage, comment: ""))
             self.present(alert, animated: true, completion: nil)
             return
         }
@@ -50,24 +55,24 @@ class HomeScreenViewController: UIViewController {
         Alamofire.request(url).responseData { (response) in
             stopLoading()
             guard let data = response.data, let json = try? JSON(data: data) else {
-                let dataErrorAlert = getAlertViewControllerWith(title: "A network error has occured", message: "Check your Internet connection and try again later")
+                let dataErrorAlert = getAlertViewControllerWith(title: NSLocalizedString(ApiErrorTitle, comment: ""), message: NSLocalizedString(ApiErrorMessage, comment: ""))
                 self.present(dataErrorAlert, animated: true, completion: nil)
                 return
             }
             
             do {
                 let _ = try json.getString(at: "message")
-                let dataErrorAlert = getAlertViewControllerWith(title: "User not found", message: "Please enter another name")
+                let dataErrorAlert = getAlertViewControllerWith(title: NSLocalizedString(UserNotFoundErrorTitle, comment: ""), message: NSLocalizedString(UserNotFoundErrorMessage, comment: ""))
                 self.present(dataErrorAlert, animated: true, completion: nil)
                 return
             } catch {
-                print("User found!")
+                print(userFoundString)
             }
             
             do {
                 self.reposList = try json.getArray().map(GitHubRepository.init)
             } catch {
-                let dataErrorAlert = getAlertViewControllerWith(title: "A network error has occured", message: "Check your Internet connection and try again later")
+                let dataErrorAlert = getAlertViewControllerWith(title: NSLocalizedString(ApiErrorTitle, comment: ""), message: NSLocalizedString(ApiErrorMessage, comment: ""))
                 self.present(dataErrorAlert, animated: true, completion: nil)
             }
             
@@ -75,14 +80,14 @@ class HomeScreenViewController: UIViewController {
                 let urlStringForImage = try json.getString(at: 0, "owner", "avatar_url", or: "")
                 self.fetchUserImage(urlString: urlStringForImage, completion: completion)
             } catch {
-                print("Failed to get image url string!")
+                print(failedUrlImageString)
             }
         }
     }
     
     func fetchUserImage(urlString : String, completion : @escaping (() -> Void)) {
         guard let url = URL(string: urlString) else {
-            let alert = getAlertViewControllerWith(title: "Error", message: "Failed to get URL! Try again later or contact us for support!")
+            let alert = getAlertViewControllerWith(title: NSLocalizedString(URLErrorTitle, comment: ""), message: NSLocalizedString(URLErrorMessage, comment: ""))
             self.present(alert, animated: true, completion: nil)
             return
         }
@@ -112,13 +117,13 @@ class HomeScreenViewController: UIViewController {
     // MARK: - Actions
     @IBAction func search() {
         guard let username = self.usernameTextField.text, !username.isEmpty else {
-            let textFieldEmptyAlert = getAlertViewControllerWith(title: "No username entered!", message: "Insert a username to proceed!")
+            let textFieldEmptyAlert = getAlertViewControllerWith(title: NSLocalizedString(EmptyTextFieldTitle, comment: ""), message: NSLocalizedString(EmptyTextFieldMessage, comment: ""))
             self.present(textFieldEmptyAlert, animated: true, completion: nil)
             return
         }
         startLoading(view: self.view)
         self.fetchReposListForUsername(username) {
-            self.performSegue(withIdentifier: "showReposListSegue", sender: nil)
+            self.performSegue(withIdentifier: reposListSegueIdentifier, sender: nil)
         }
         
     }
