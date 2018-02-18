@@ -12,8 +12,6 @@
 		0E1DF54F2038AAAA00F3F8AF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1DF5542038AAAA00F3F8AF /* Alamofire.framework */; };
 		0E1DF5502038AAAA00F3F8AF /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1DF5552038AAAA00F3F8AF /* AlamofireImage.framework */; };
 		0E1DF5512038AAAA00F3F8AF /* Freddy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1DF5562038AAAA00F3F8AF /* Freddy.framework */; };
-		0E1DF5522038AAAA00F3F8AF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1DF5572038AAAA00F3F8AF /* RxCocoa.framework */; };
-		0E1DF5532038AAAA00F3F8AF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1DF5582038AAAA00F3F8AF /* RxSwift.framework */; };
 		0E1DF55A2038AFC200F3F8AF /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DF5592038AFC200F3F8AF /* Rounder.swift */; };
 		0E4CD10B203796A50083A1CC /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4CD10A203796A50083A1CC /* GitHubRepository.swift */; };
 		0E5DA9D62034ED9100175572 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5DA9D52034ED9100175572 /* HomeScreenViewController.swift */; };
@@ -56,8 +54,6 @@
 				0E1DF54F2038AAAA00F3F8AF /* Alamofire.framework in Frameworks */,
 				0E1DF5502038AAAA00F3F8AF /* AlamofireImage.framework in Frameworks */,
 				0E1DF5512038AAAA00F3F8AF /* Freddy.framework in Frameworks */,
-				0E1DF5522038AAAA00F3F8AF /* RxCocoa.framework in Frameworks */,
-				0E1DF5532038AAAA00F3F8AF /* RxSwift.framework in Frameworks */,
 				49B741AD15661231C8D88E64 /* Pods_GitHubViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

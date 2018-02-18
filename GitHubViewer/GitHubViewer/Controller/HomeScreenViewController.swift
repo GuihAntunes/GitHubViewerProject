@@ -105,6 +105,10 @@ class HomeScreenViewController: UIViewController {
         nextController.setUserImage(userImage: self.userImage)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+    }
+    
     // MARK: - Actions
     @IBAction func search() {
         guard let username = self.usernameTextField.text, !username.isEmpty else {
