@@ -47,12 +47,21 @@ class HomeScreenViewController: UIViewController {
             return
         }
         
-        Alamofire.request(url).validate().responseData { (response) in
+        Alamofire.request(url).responseData { (response) in
             stopLoading()
             guard let data = response.data, let json = try? JSON(data: data) else {
                 let dataErrorAlert = getAlertViewControllerWith(title: "A network error has occured", message: "Check your Internet connection and try again later")
                 self.present(dataErrorAlert, animated: true, completion: nil)
                 return
+            }
+            
+            do {
+                let _ = try json.getString(at: "message")
+                let dataErrorAlert = getAlertViewControllerWith(title: "User not found", message: "Please enter another name")
+                self.present(dataErrorAlert, animated: true, completion: nil)
+                return
+            } catch {
+                print("User found!")
             }
             
             do {
